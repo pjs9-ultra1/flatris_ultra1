@@ -29,7 +29,7 @@ stages:
   jobs:  
   - job: Archive
     displayName: Archive
-   pool:
+    pool:
       vmImage: $(vmImageName)
     steps:   
     - task: AzureAppServiceSettings@1
@@ -64,7 +64,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: $(environmentName)
-    pool: PeteTestSelfHosted
+    pool: 
+      vmImage: $(vmImageName)
     strategy:
       runOnce:
         deploy:
